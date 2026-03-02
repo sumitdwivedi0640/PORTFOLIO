@@ -5,12 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sumit Dwivedi | AI Engineer</title>
 
+<meta name="description" content="AI Engineer specializing in ML, GenAI and LLM systems.">
+<meta name="keywords" content="AI Engineer, Machine Learning, GenAI, LLM, FastAPI">
+
 <style>
 :root{
-  --primary:#007BFF;
+  --primary:#1e73ff;
   --bg:#ffffff;
   --text:#0a1f44;
-  --card:#f4f9ff;
+  --card:#f4f8ff;
 }
 
 body.dark{
@@ -21,10 +24,11 @@ body.dark{
 
 body{
   margin:0;
-  font-family:Segoe UI;
+  font-family:'Segoe UI', sans-serif;
   background:var(--bg);
   color:var(--text);
-  transition:0.4s;
+  transition:0.3s;
+  line-height:1.6;
 }
 
 nav{
@@ -34,68 +38,61 @@ nav{
   padding:20px 10%;
   background:var(--bg);
   box-shadow:0 2px 10px rgba(0,0,0,0.05);
-  width:100%;
 }
 
-.logo{ height:100px; }
+.logo{ height:90px; }
 
 .toggle-btn{
   background:var(--primary);
   color:white;
   border:none;
-  padding:8px 14px;
+  padding:8px 16px;
   border-radius:6px;
   cursor:pointer;
 }
 
 .hero{
-  min-height:100vh;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  padding:0 10%;
-  margin-top:80px;
+  align-items:center;
+  padding:80px 10%;
   flex-wrap:wrap;
 }
 
 .hero-text{ max-width:600px; }
 
-.hero h1{ font-size:42px; }
+.hero h1{ font-size:42px; margin-bottom:10px; }
 
 .typing{
   color:var(--primary);
-  border-right:3px solid var(--primary);
-  white-space:nowrap;
-  overflow:hidden;
+  font-weight:600;
 }
 
 .profile-img{
   width:280px;
-  border-radius:15px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  border-radius:50%;
+  box-shadow:0 15px 40px rgba(0,0,0,0.15);
 }
 
 .btn{
   background:var(--primary);
   color:white;
-  padding:12px 20px;
+  padding:12px 22px;
   border-radius:6px;
   text-decoration:none;
   display:inline-block;
   margin-top:15px;
   margin-right:10px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
 section{
-  padding:80px 10%;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
-}
-
-section.show{
-  opacity:1;
-  transform:translateY(0);
+  padding:70px 10%;
 }
 
 h2{
@@ -103,31 +100,52 @@ h2{
   margin-bottom:30px;
 }
 
+/* Cards */
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:14px;
+  margin-bottom:25px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.05);
+}
+
 /* Skills */
+.skill-category{
+  margin-bottom:40px;
+}
+
 .progress{
   background:#e0ecff;
   border-radius:20px;
-  margin-bottom:20px;
+  margin-bottom:15px;
   overflow:hidden;
 }
 
-body.dark .progress{ background:#334155; }
+body.dark .progress{
+  background:#334155;
+}
 
 .progress-bar{
   height:12px;
   width:0;
   background:var(--primary);
   border-radius:20px;
-  transition:2s;
+  transition:1.5s;
 }
 
-/* Project */
-.card{
-  background:var(--card);
+.stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+}
+.stats img{
+  height:120px;
+}
+
+footer{
+  text-align:center;
   padding:30px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.05);
-  max-width:600px;
+  font-size:14px;
 }
 </style>
 </head>
@@ -141,52 +159,68 @@ body.dark .progress{ background:#334155; }
 <div class="hero">
   <div class="hero-text">
     <h1>Sumit Dwivedi</h1>
-    <h2 class="typing"></h2>
+    <div class="typing">AI Engineer | ML | GenAI | LLM Systems</div>
 
     <p>
-      AI Engineer specializing in Machine Learning, Deep Learning, 
-      and LLM-powered systems. Experienced in building production-ready 
-      AI pipelines using FastAPI, TensorFlow, and Scikit-learn.
+      AI Engineer focused on building production-grade Machine Learning 
+      and LLM systems with scalable backend architectures using FastAPI.
     </p>
 
     <a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">GitHub</a>
     <a href="https://www.linkedin.com/in/sumit-dwivedi21/" target="_blank" class="btn">LinkedIn</a>
   </div>
 
-  <img src="profile.jpeg" class="profile-img">
+  <img src="profile.jpg" class="profile-img">
 </div>
 
+<!-- Skills Categorized -->
 <section>
   <h2>Skills</h2>
 
-  Python
-  <div class="progress"><div class="progress-bar" data-width="92%"></div></div>
+  <div class="skill-category">
+    <h3>Core AI / ML</h3>
+    Python<div class="progress"><div class="progress-bar" data-width="92%"></div></div>
+    Machine Learning<div class="progress"><div class="progress-bar" data-width="88%"></div></div>
+    Deep Learning<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+    LLM / GenAI<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+  </div>
 
-  Machine Learning
-  <div class="progress"><div class="progress-bar" data-width="88%"></div></div>
+  <div class="skill-category">
+    <h3>Backend & Systems</h3>
+    FastAPI<div class="progress"><div class="progress-bar" data-width="82%"></div></div>
+    SQLAlchemy<div class="progress"><div class="progress-bar" data-width="78%"></div></div>
+  </div>
 
-  Deep Learning
-  <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-
-  LLM / GenAI
-  <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-
-  FastAPI
-  <div class="progress"><div class="progress-bar" data-width="82%"></div></div>
-
-  AWS
-  <div class="progress"><div class="progress-bar" data-width="72%"></div></div>
+  <div class="skill-category">
+    <h3>Cloud & Deployment</h3>
+    AWS<div class="progress"><div class="progress-bar" data-width="72%"></div></div>
+  </div>
 </section>
 
+<!-- Case Study Project -->
 <section>
-  <h2>Featured Project</h2>
+  <h2>Healthcare AI System — Case Study</h2>
 
   <div class="card">
-    <h3>Healthcare AI System</h3>
+    <h3>Problem Statement</h3>
+    <p>Early detection of sepsis and automated tumor classification using medical data.</p>
+
+    <h3>Solution Architecture</h3>
     <p>
-      Multi-stage AI system including Sepsis Prediction (Scikit-learn),
-      Tumor Detection (TensorFlow CNN), Modality Classification,
-      Treatment Recommendation, and SQLite-based patient history.
+      Built a multi-stage AI pipeline with FastAPI backend integrating:
+      Sepsis Prediction (Scikit-learn), 
+      Tumor Detection CNN (TensorFlow),
+      Modality Classification, 
+      and Treatment Recommendation module.
+    </p>
+
+    <h3>Tech Stack</h3>
+    <p>Python, FastAPI, TensorFlow, Scikit-learn, SQLAlchemy, SQLite</p>
+
+    <h3>Impact</h3>
+    <p>
+      Designed modular, scalable AI architecture suitable for real-world 
+      healthcare workflows and deployment.
     </p>
 
     <a href="https://github.com/sumitdwivedi0640/healthcare-ai-system"
@@ -196,40 +230,28 @@ body.dark .progress{ background:#334155; }
   </div>
 </section>
 
-<script>
-const text="AI Engineer | Machine Learning | GenAI | LLM Systems";
-let i=0;
-function typing(){
- if(i<text.length){
-  document.querySelector(".typing").innerHTML+=text.charAt(i);
-  i++; setTimeout(typing,70);
- }
-}
-typing();
+<!-- GitHub Stats -->
+<section>
+  <h2>GitHub Stats</h2>
+  <div class="stats">
+    <img src="https://github-readme-stats.vercel.app/api?username=sumitdwivedi0640&show_icons=true&theme=default">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sumitdwivedi0640&layout=compact">
+  </div>
+</section>
 
-window.addEventListener("scroll",()=>{
- document.querySelectorAll("section").forEach(sec=>{
-  if(sec.getBoundingClientRect().top < window.innerHeight-100){
-   sec.classList.add("show");
-  }
- });
+<footer>
+  © 2026 Sumit Dwivedi | AI Engineer
+</footer>
+
+<script>
+document.querySelectorAll('.progress-bar').forEach(bar=>{
+  bar.style.width=bar.getAttribute("data-width");
 });
 
-window.onload=()=>{
- document.querySelectorAll(".progress-bar").forEach(bar=>{
-  bar.style.width=bar.getAttribute("data-width");
- });
-};
-
 function toggleTheme(){
- document.body.classList.toggle("dark");
+  document.body.classList.toggle("dark");
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
