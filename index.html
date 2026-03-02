@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sumit Dwivedi | AI Engineer</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f9ff;
+    color: #0a1f44;
+}
+
+/* Navbar */
+nav {
+    background: white;
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav h2 {
+    color: #007BFF;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero span {
+    color: #007BFF;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.btn {
+    background: #007BFF;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Section */
+section {
+    padding: 80px 10%;
+}
+
+section h2 {
+    margin-bottom: 30px;
+    color: #007BFF;
+}
+
+/* Skills */
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    margin-bottom: 5px;
+}
+
+.progress {
+    width: 100%;
+    background: #e0ecff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 12px;
+    width: 0;
+    background: #007BFF;
+    border-radius: 20px;
+    transition: width 2s ease-in-out;
+}
+
+/* Projects */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    color: #555;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Sumit Dwivedi</h2>
+    <a href="https://github.com/sumitdwivedi0640" target="_blank">GitHub</a>
+</nav>
+
+<div class="hero">
+    <h1>Hello, I'm <span>Sumit Dwivedi</span></h1>
+    <p>
+        AI Engineer specializing in Machine Learning, Deep Learning, and LLM-powered systems.
+        Experienced in building end-to-end AI pipelines, FastAPI backends, and production-ready ML applications.
+    </p>
+    <a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">View GitHub</a>
+</div>
+
+<section>
+    <h2>Skills</h2>
+
+    <div class="skill">
+        <div class="skill-name">Python – 92%</div>
+        <div class="progress"><div class="progress-bar" data-width="92%"></div></div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">Machine Learning – 88%</div>
+        <div class="progress"><div class="progress-bar" data-width="88%"></div></div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">Deep Learning – 85%</div>
+        <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">LLM / GenAI – 85%</div>
+        <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">FastAPI – 82%</div>
+        <div class="progress"><div class="progress-bar" data-width="82%"></div></div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">SQL – 78%</div>
+        <div class="progress"><div class="progress-bar" data-width="78%"></div></div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">AWS – 72%</div>
+        <div class="progress"><div class="progress-bar" data-width="72%"></div></div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">MLOps – 70%</div>
+        <div class="progress"><div class="progress-bar" data-width="70%"></div></div>
+    </div>
+</section>
+
+<section>
+    <h2>Projects</h2>
+
+    <div class="projects">
+
+        <div class="card">
+            <h3>Healthcare AI System</h3>
+            <p>Multi-stage AI system including Sepsis Prediction, Tumor Detection CNN, and Treatment Recommendation.</p>
+            <a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">View Project</a>
+        </div>
+
+        <div class="card">
+            <h3>LLM Document Extraction</h3>
+            <p>LLM-powered system to extract structured data from scanned documents using prompt engineering.</p>
+            <a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">View Project</a>
+        </div>
+
+        <div class="card">
+            <h3>Flashcard Generator (LLM)</h3>
+            <p>AI-based flashcard generator using LLMs for automatic knowledge extraction and summarization.</p>
+            <a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">View Project</a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Sumit Dwivedi | AI Engineer Portfolio
+</footer>
+
+<script>
+const bars = document.querySelectorAll('.progress-bar');
+window.addEventListener('load', () => {
+    bars.forEach(bar => {
+        bar.style.width = bar.getAttribute('data-width');
+    });
+});
+</script>
+
+</body>
+</html>
