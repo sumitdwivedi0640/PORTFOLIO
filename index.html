@@ -1,303 +1,206 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sumit Dwivedi | AI Engineer</title>
 
-<!-- Fonts & Icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-:root {
-  --primary: #007BFF;
-  --dark: #0f172a;
-  --light: #f4f9ff;
+body{
+  margin:0;
+  font-family:Segoe UI;
+  background:#0f172a;
+  color:white;
+  overflow-x:hidden;
+}
+h2{color:#00bfff;}
+section{padding:80px 10%;}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;}
+.btn{
+  background:#00bfff;
+  padding:10px 18px;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  display:inline-block;
+  margin-top:15px;
+}
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+.card{
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+  cursor:pointer;
+}
+.progress{
+  background:#1e293b;
+  border-radius:20px;
+  margin-bottom:15px;
+}
+.progress-bar{
+  height:12px;
+  width:0;
+  background:#00bfff;
+  border-radius:20px;
+  transition:2s;
 }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0f172a;
-  color: white;
-  overflow-x: hidden;
-  cursor: none;
+/* Chatbot */
+.chatbox{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:300px;
+  background:#1e293b;
+  border-radius:12px;
+  padding:15px;
+  display:none;
 }
-
-/* Particles background */
-#particles {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-/* Custom Cursor */
-.cursor {
-  width: 15px;
-  height: 15px;
-  border: 2px solid #007BFF;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  transition: 0.1s;
-  z-index: 9999;
-}
-
-/* Navbar */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 10%;
-  position: fixed;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-}
-
-.toggle {
-  cursor: pointer;
-}
-
-/* Hero */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 10%;
-}
-
-.typing {
-  color: var(--primary);
-  border-right: 3px solid var(--primary);
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-/* Sections */
-section {
-  padding: 80px 10%;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s;
-}
-
-section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-h2 {
-  color: var(--primary);
-}
-
-/* Skills */
-.progress {
-  background: #1e293b;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-
-.progress-bar {
-  height: 12px;
-  width: 0;
-  background: var(--primary);
-  border-radius: 20px;
-  transition: width 2s;
-}
-
-/* Projects */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 15px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.badge {
-  display: inline-block;
-  background: var(--primary);
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 12px;
+.chatbox input{
+  width:100%;
+  padding:8px;
+  margin-top:10px;
 }
 
 /* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
 }
-
-.modal-content {
-  background: #1e293b;
-  padding: 30px;
-  border-radius: 15px;
-  width: 80%;
-  max-width: 700px;
-}
-
-.modal img {
-  width: 100%;
-  border-radius: 10px;
+.modal-content{
+  background:#1e293b;
+  padding:30px;
+  border-radius:12px;
+  width:80%;
+  max-width:600px;
 }
 </style>
 </head>
-
 <body>
 
-<div id="particles"></div>
-<div class="cursor"></div>
-
-<nav>
-  <h3>Sumit Dwivedi</h3>
-  <div class="toggle" onclick="toggleMode()">🌙</div>
-</nav>
-
 <div class="hero">
-  <h1>Hello, I'm Sumit Dwivedi</h1>
-  <h2 class="typing"></h2>
+<h1>Sumit Dwivedi</h1>
+<h2 id="typing"></h2>
+<a href="resume.pdf" download class="btn">Download Resume</a>
+<a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">GitHub</a>
 </div>
 
 <section>
-  <h2>Skills</h2>
-  Python
-  <div class="progress"><div class="progress-bar" data-width="92%"></div></div>
-  Machine Learning
-  <div class="progress"><div class="progress-bar" data-width="88%"></div></div>
-  Deep Learning
-  <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-  LLM / GenAI
-  <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+<h2>Skills</h2>
+Python<div class="progress"><div class="progress-bar" data-width="92%"></div></div>
+Machine Learning<div class="progress"><div class="progress-bar" data-width="88%"></div></div>
+Deep Learning<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+LLM / GenAI<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
 </section>
 
 <section>
-  <h2>Projects</h2>
-
-  <div class="projects">
-
-    <div class="card" onclick="openModal()">
-      <h3>Healthcare AI System</h3>
-      <div id="repo-data"></div>
-      <span class="badge">Deployed Ready</span>
-      <p><i class="fab fa-python"></i> Python 
-         <i class="fas fa-brain"></i> ML 
-         <i class="fas fa-server"></i> FastAPI</p>
-    </div>
-
-  </div>
+<h2>Projects (Auto Synced)</h2>
+<div class="projects" id="projects"></div>
 </section>
 
-<!-- Modal -->
-<div class="modal" id="projectModal">
-  <div class="modal-content">
-    <h3>Healthcare AI System</h3>
-    <img src="https://raw.githubusercontent.com/sumitdwivedi0640/healthcare-ai-system/main/project-preview.png">
-    <br><br>
-    <a href="https://github.com/sumitdwivedi0640/healthcare-ai-system" target="_blank">
-      View Full Repository →
-    </a>
-  </div>
+<section>
+<h2>Blog</h2>
+<div class="card">
+<h3>Building Multi-Stage Healthcare AI Systems</h3>
+<p>How I designed a modular ML pipeline using FastAPI and TensorFlow.</p>
+</div>
+<div class="card">
+<h3>Deploying ML Models in Production</h3>
+<p>Challenges in versioning, monitoring and scaling AI systems.</p>
+</div>
+</section>
+
+<section>
+<h2>Visitors</h2>
+<img src="https://visitor-badge.laobi.icu/badge?page_id=sumitdwivedi0640.portfolio" />
+</section>
+
+<button onclick="toggleChat()" class="btn" style="position:fixed;bottom:20px;left:20px;">AI Chat</button>
+
+<div class="chatbox" id="chatbox">
+<div id="chatlog">Hi 👋 Ask about my projects!</div>
+<input type="text" id="chatInput" placeholder="Ask something...">
+</div>
+
+<div class="modal" id="modal">
+<div class="modal-content" id="modal-content"></div>
 </div>
 
 <script>
 /* Typing */
-const text = "AI Engineer | ML | GenAI | LLM Systems";
+const text="AI Engineer | ML | GenAI | LLM Systems";
 let i=0;
 function typing(){
-  if(i<text.length){
-    document.querySelector(".typing").innerHTML+=text.charAt(i);
-    i++;
-    setTimeout(typing,70);
-  }
+ if(i<text.length){
+   document.getElementById("typing").innerHTML+=text.charAt(i);
+   i++; setTimeout(typing,70);
+ }
 }
 typing();
 
-/* Scroll reveal */
-window.addEventListener("scroll",()=>{
-  document.querySelectorAll("section").forEach(sec=>{
-    if(sec.getBoundingClientRect().top < window.innerHeight-100){
-      sec.classList.add("show");
-    }
-  });
-});
-
-/* Skills animation */
+/* Skills */
 window.onload=()=>{
-  document.querySelectorAll(".progress-bar").forEach(bar=>{
-    bar.style.width=bar.getAttribute("data-width");
-  });
+ document.querySelectorAll(".progress-bar").forEach(bar=>{
+  bar.style.width=bar.getAttribute("data-width");
+ });
 };
 
-/* Dark mode */
-function toggleMode(){
-  document.body.classList.toggle("light");
-}
-
-/* Modal */
-function openModal(){
-  document.getElementById("projectModal").style.display="flex";
-}
-window.onclick=function(e){
-  if(e.target.classList.contains("modal")){
-    e.target.style.display="none";
-  }
-};
-
-/* GitHub Auto Fetch */
-fetch("https://api.github.com/repos/sumitdwivedi0640/healthcare-ai-system")
+/* Auto GitHub Projects */
+fetch("https://api.github.com/users/sumitdwivedi0640/repos")
 .then(res=>res.json())
 .then(data=>{
-  document.getElementById("repo-data").innerHTML =
-    `⭐ ${data.stargazers_count} | 🍴 ${data.forks_count}<br>${data.description}`;
+ let container=document.getElementById("projects");
+ data.forEach(repo=>{
+  if(!repo.fork){
+   container.innerHTML+=`
+   <div class="card" onclick="openModal('${repo.name}','${repo.description}','${repo.html_url}')">
+   <h3>${repo.name}</h3>
+   <p>${repo.description||'No description'}</p>
+   ⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}
+   </div>`;
+  }
+ });
 });
 
-/* Custom Cursor */
-const cursor=document.querySelector(".cursor");
-document.addEventListener("mousemove",e=>{
-  cursor.style.left=e.clientX+"px";
-  cursor.style.top=e.clientY+"px";
-});
+/* Modal */
+function openModal(name,desc,url){
+ document.getElementById("modal").style.display="flex";
+ document.getElementById("modal-content").innerHTML=
+ `<h2>${name}</h2><p>${desc}</p><br>
+ <a href="${url}" target="_blank" class="btn">View Repository</a>`;
+}
+window.onclick=e=>{
+ if(e.target.classList.contains("modal")){
+  e.target.style.display="none";
+ }
+};
 
-/* Particles */
-const canvas=document.createElement("canvas");
-document.getElementById("particles").appendChild(canvas);
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-const ctx=canvas.getContext("2d");
-let particles=[];
-for(let i=0;i<80;i++){
-  particles.push({x:Math.random()*canvas.width,
-  y:Math.random()*canvas.height,
-  r:Math.random()*2});
+/* Chatbot (Basic Portfolio AI Assistant) */
+function toggleChat(){
+ let chat=document.getElementById("chatbox");
+ chat.style.display=chat.style.display==="block"?"none":"block";
 }
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="#007BFF";
-  particles.forEach(p=>{
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-  });
-  requestAnimationFrame(animate);
-}
-animate();
+
+document.getElementById("chatInput").addEventListener("keypress",function(e){
+ if(e.key==="Enter"){
+  let q=this.value.toLowerCase();
+  let response="I am an AI Engineer specializing in ML and LLM systems.";
+  if(q.includes("project")) response="You can explore my Healthcare AI System in the projects section.";
+  if(q.includes("skills")) response="My core skills include Python, ML, Deep Learning, and GenAI.";
+  document.getElementById("chatlog").innerHTML+="<br><b>You:</b> "+this.value+"<br><b>AI:</b> "+response;
+  this.value="";
+ }
+});
 </script>
 
 </body>
