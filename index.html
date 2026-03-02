@@ -16,8 +16,10 @@ body{
   overflow-x:hidden;
 }
 h2{color:#00bfff;}
-section{padding:80px 10%;}
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;}
+section{padding:80px 10%;opacity:0;transform:translateY(40px);transition:0.8s;}
+section.show{opacity:1;transform:translateY(0);}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 10%;}
+.typing{color:#00bfff;border-right:3px solid #00bfff;white-space:nowrap;overflow:hidden;}
 .btn{
   background:#00bfff;
   padding:10px 18px;
@@ -26,16 +28,6 @@ section{padding:80px 10%;}
   border-radius:6px;
   display:inline-block;
   margin-top:15px;
-}
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
-.card{
-  background:#1e293b;
-  padding:20px;
-  border-radius:12px;
   cursor:pointer;
 }
 .progress{
@@ -49,6 +41,31 @@ section{padding:80px 10%;}
   background:#00bfff;
   border-radius:20px;
   transition:2s;
+}
+.card{
+  background:#1e293b;
+  padding:25px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.card:hover{transform:translateY(-8px);}
+
+/* Modal */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+}
+.modal-content{
+  background:#1e293b;
+  padding:30px;
+  border-radius:12px;
+  width:80%;
+  max-width:600px;
 }
 
 /* Chatbot */
@@ -67,31 +84,13 @@ section{padding:80px 10%;}
   padding:8px;
   margin-top:10px;
 }
-
-/* Modal */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.8);
-  justify-content:center;
-  align-items:center;
-}
-.modal-content{
-  background:#1e293b;
-  padding:30px;
-  border-radius:12px;
-  width:80%;
-  max-width:600px;
-}
 </style>
 </head>
 <body>
 
 <div class="hero">
 <h1>Sumit Dwivedi</h1>
-<h2 id="typing"></h2>
-<a href="resume.pdf" download class="btn">Download Resume</a>
+<h2 class="typing"></h2>
 <a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">GitHub</a>
 </div>
 
@@ -101,83 +100,85 @@ Python<div class="progress"><div class="progress-bar" data-width="92%"></div></d
 Machine Learning<div class="progress"><div class="progress-bar" data-width="88%"></div></div>
 Deep Learning<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
 LLM / GenAI<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+FastAPI<div class="progress"><div class="progress-bar" data-width="82%"></div></div>
+AWS<div class="progress"><div class="progress-bar" data-width="72%"></div></div>
 </section>
 
 <section>
-<h2>Projects (Auto Synced)</h2>
-<div class="projects" id="projects"></div>
-</section>
+<h2>Project</h2>
 
-<section>
-<h2>Blog</h2>
-<div class="card">
-<h3>Building Multi-Stage Healthcare AI Systems</h3>
-<p>How I designed a modular ML pipeline using FastAPI and TensorFlow.</p>
+<div class="card" onclick="openModal()">
+<h3>Healthcare AI System</h3>
+<p>
+End-to-end AI system including:
+Sepsis Prediction (Scikit-learn),
+Tumor Detection (TensorFlow CNN),
+Modality Classification,
+Treatment Recommendation,
+SQLite-based patient history.
+</p>
+⭐ Production-ready architecture with FastAPI backend
 </div>
-<div class="card">
-<h3>Deploying ML Models in Production</h3>
-<p>Challenges in versioning, monitoring and scaling AI systems.</p>
+
+</section>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<h2>Healthcare AI System</h2>
+<p>
+Multi-stage AI pipeline built using:
+Python, FastAPI, TensorFlow, Scikit-learn,
+SQLAlchemy, Streamlit.
+</p>
+<br>
+<a href="https://github.com/sumitdwivedi0640/healthcare-ai-system"
+target="_blank" class="btn">
+View Repository
+</a>
 </div>
-</section>
+</div>
 
-<section>
-<h2>Visitors</h2>
-<img src="https://visitor-badge.laobi.icu/badge?page_id=sumitdwivedi0640.portfolio" />
-</section>
-
-<button onclick="toggleChat()" class="btn" style="position:fixed;bottom:20px;left:20px;">AI Chat</button>
+<button onclick="toggleChat()" class="btn" style="position:fixed;bottom:20px;left:20px;">
+AI Chat
+</button>
 
 <div class="chatbox" id="chatbox">
-<div id="chatlog">Hi 👋 Ask about my projects!</div>
+<div id="chatlog">Hi 👋 Ask about my project or skills.</div>
 <input type="text" id="chatInput" placeholder="Ask something...">
 </div>
 
-<div class="modal" id="modal">
-<div class="modal-content" id="modal-content"></div>
-</div>
-
 <script>
-/* Typing */
+/* Typing Animation */
 const text="AI Engineer | ML | GenAI | LLM Systems";
 let i=0;
 function typing(){
  if(i<text.length){
-   document.getElementById("typing").innerHTML+=text.charAt(i);
-   i++; setTimeout(typing,70);
+  document.querySelector(".typing").innerHTML+=text.charAt(i);
+  i++; setTimeout(typing,70);
  }
 }
 typing();
 
-/* Skills */
+/* Scroll Reveal */
+window.addEventListener("scroll",()=>{
+ document.querySelectorAll("section").forEach(sec=>{
+  if(sec.getBoundingClientRect().top < window.innerHeight-100){
+   sec.classList.add("show");
+  }
+ });
+});
+
+/* Skill Animation */
 window.onload=()=>{
  document.querySelectorAll(".progress-bar").forEach(bar=>{
   bar.style.width=bar.getAttribute("data-width");
  });
 };
 
-/* Auto GitHub Projects */
-fetch("https://api.github.com/users/sumitdwivedi0640/repos")
-.then(res=>res.json())
-.then(data=>{
- let container=document.getElementById("projects");
- data.forEach(repo=>{
-  if(!repo.fork){
-   container.innerHTML+=`
-   <div class="card" onclick="openModal('${repo.name}','${repo.description}','${repo.html_url}')">
-   <h3>${repo.name}</h3>
-   <p>${repo.description||'No description'}</p>
-   ⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}
-   </div>`;
-  }
- });
-});
-
 /* Modal */
-function openModal(name,desc,url){
+function openModal(){
  document.getElementById("modal").style.display="flex";
- document.getElementById("modal-content").innerHTML=
- `<h2>${name}</h2><p>${desc}</p><br>
- <a href="${url}" target="_blank" class="btn">View Repository</a>`;
 }
 window.onclick=e=>{
  if(e.target.classList.contains("modal")){
@@ -185,18 +186,17 @@ window.onclick=e=>{
  }
 };
 
-/* Chatbot (Basic Portfolio AI Assistant) */
+/* Chatbot */
 function toggleChat(){
  let chat=document.getElementById("chatbox");
  chat.style.display=chat.style.display==="block"?"none":"block";
 }
-
 document.getElementById("chatInput").addEventListener("keypress",function(e){
  if(e.key==="Enter"){
   let q=this.value.toLowerCase();
-  let response="I am an AI Engineer specializing in ML and LLM systems.";
-  if(q.includes("project")) response="You can explore my Healthcare AI System in the projects section.";
-  if(q.includes("skills")) response="My core skills include Python, ML, Deep Learning, and GenAI.";
+  let response="I specialize in ML and LLM systems.";
+  if(q.includes("project")) response="This portfolio features my Healthcare AI System.";
+  if(q.includes("skills")) response="Core skills: Python, ML, Deep Learning, FastAPI, GenAI.";
   document.getElementById("chatlog").innerHTML+="<br><b>You:</b> "+this.value+"<br><b>AI:</b> "+response;
   this.value="";
  }
