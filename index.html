@@ -5,152 +5,212 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sumit Dwivedi | AI Engineer</title>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
 <style>
+:root{
+  --primary:#007BFF;
+  --bg:#ffffff;
+  --text:#0a1f44;
+  --card:#f4f9ff;
+}
+
+body.dark{
+  --bg:#0f172a;
+  --text:#e2e8f0;
+  --card:#1e293b;
+}
+
 body{
   margin:0;
   font-family:Segoe UI;
-  background:#0f172a;
-  color:white;
-  overflow-x:hidden;
+  background:var(--bg);
+  color:var(--text);
+  transition:0.4s;
 }
-h2{color:#00bfff;}
-section{padding:80px 10%;opacity:0;transform:translateY(40px);transition:0.8s;}
-section.show{opacity:1;transform:translateY(0);}
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 10%;}
-.typing{color:#00bfff;border-right:3px solid #00bfff;white-space:nowrap;overflow:hidden;}
-.btn{
-  background:#00bfff;
-  padding:10px 18px;
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
+  background:var(--bg);
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  position:fixed;
+  width:100%;
+  z-index:1000;
+}
+
+.logo{
+  height:45px;
+}
+
+.toggle-btn{
+  background:var(--primary);
   color:white;
-  text-decoration:none;
+  border:none;
+  padding:8px 14px;
   border-radius:6px;
-  display:inline-block;
-  margin-top:15px;
   cursor:pointer;
 }
-.progress{
-  background:#1e293b;
-  border-radius:20px;
-  margin-bottom:15px;
+
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:0 10%;
 }
+
+.hero h1{
+  font-size:48px;
+}
+
+.typing{
+  color:var(--primary);
+  border-right:3px solid var(--primary);
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.btn{
+  background:var(--primary);
+  color:white;
+  padding:12px 20px;
+  border-radius:6px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:20px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#0056b3;
+}
+
+section{
+  padding:80px 10%;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  color:var(--primary);
+  margin-bottom:30px;
+}
+
+/* Skills */
+.progress{
+  background:#e0ecff;
+  border-radius:20px;
+  margin-bottom:20px;
+  overflow:hidden;
+}
+
+body.dark .progress{
+  background:#334155;
+}
+
 .progress-bar{
   height:12px;
   width:0;
-  background:#00bfff;
+  background:var(--primary);
   border-radius:20px;
   transition:2s;
 }
-.card{
-  background:#1e293b;
-  padding:25px;
-  border-radius:12px;
-  cursor:pointer;
-  transition:0.3s;
-}
-.card:hover{transform:translateY(-8px);}
 
-/* Modal */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.8);
-  justify-content:center;
-  align-items:center;
-}
-.modal-content{
-  background:#1e293b;
+/* Project Card */
+.card{
+  background:var(--card);
   padding:30px;
   border-radius:12px;
-  width:80%;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+  transition:0.3s;
   max-width:600px;
 }
 
-/* Chatbot */
-.chatbox{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:300px;
-  background:#1e293b;
-  border-radius:12px;
-  padding:15px;
-  display:none;
+.card:hover{
+  transform:translateY(-8px);
 }
-.chatbox input{
-  width:100%;
-  padding:8px;
-  margin-top:10px;
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:var(--bg);
 }
 </style>
 </head>
 <body>
 
+<nav>
+  <img src="logo.png" class="logo">
+  <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+</nav>
+
 <div class="hero">
-<h1>Sumit Dwivedi</h1>
-<h2 class="typing"></h2>
-<a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">GitHub</a>
+  <h1>Sumit Dwivedi</h1>
+  <h2 class="typing"></h2>
+  <a href="https://github.com/sumitdwivedi0640/healthcare-ai-system" 
+     target="_blank" class="btn">
+     View Healthcare AI System
+  </a>
 </div>
 
 <section>
-<h2>Skills</h2>
-Python<div class="progress"><div class="progress-bar" data-width="92%"></div></div>
-Machine Learning<div class="progress"><div class="progress-bar" data-width="88%"></div></div>
-Deep Learning<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-LLM / GenAI<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-FastAPI<div class="progress"><div class="progress-bar" data-width="82%"></div></div>
-AWS<div class="progress"><div class="progress-bar" data-width="72%"></div></div>
+  <h2>Skills</h2>
+
+  Python
+  <div class="progress"><div class="progress-bar" data-width="92%"></div></div>
+
+  Machine Learning
+  <div class="progress"><div class="progress-bar" data-width="88%"></div></div>
+
+  Deep Learning
+  <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+
+  LLM / GenAI
+  <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+
+  FastAPI
+  <div class="progress"><div class="progress-bar" data-width="82%"></div></div>
+
+  AWS
+  <div class="progress"><div class="progress-bar" data-width="72%"></div></div>
+
 </section>
 
 <section>
-<h2>Project</h2>
+  <h2>Project</h2>
 
-<div class="card" onclick="openModal()">
-<h3>Healthcare AI System</h3>
-<p>
-End-to-end AI system including:
-Sepsis Prediction (Scikit-learn),
-Tumor Detection (TensorFlow CNN),
-Modality Classification,
-Treatment Recommendation,
-SQLite-based patient history.
-</p>
-⭐ Production-ready architecture with FastAPI backend
-</div>
+  <div class="card">
+    <h3>Healthcare AI System</h3>
+    <p>
+      End-to-end multi-stage AI system including:
+      Sepsis Prediction (Scikit-learn),
+      Tumor Detection (TensorFlow CNN),
+      Modality Classification,
+      Treatment Recommendation,
+      SQLite patient history module.
+    </p>
+    <a href="https://github.com/sumitdwivedi0640/healthcare-ai-system"
+       target="_blank" class="btn">
+       View Repository
+    </a>
+  </div>
 
 </section>
 
-<!-- Modal -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<h2>Healthcare AI System</h2>
-<p>
-Multi-stage AI pipeline built using:
-Python, FastAPI, TensorFlow, Scikit-learn,
-SQLAlchemy, Streamlit.
-</p>
-<br>
-<a href="https://github.com/sumitdwivedi0640/healthcare-ai-system"
-target="_blank" class="btn">
-View Repository
-</a>
-</div>
-</div>
-
-<button onclick="toggleChat()" class="btn" style="position:fixed;bottom:20px;left:20px;">
-AI Chat
-</button>
-
-<div class="chatbox" id="chatbox">
-<div id="chatlog">Hi 👋 Ask about my project or skills.</div>
-<input type="text" id="chatInput" placeholder="Ask something...">
-</div>
+<footer>
+  © 2026 Sumit Dwivedi | AI Engineer
+</footer>
 
 <script>
 /* Typing Animation */
-const text="AI Engineer | ML | GenAI | LLM Systems";
+const text="AI Engineer | Machine Learning | GenAI | LLM Systems";
 let i=0;
 function typing(){
  if(i<text.length){
@@ -176,31 +236,10 @@ window.onload=()=>{
  });
 };
 
-/* Modal */
-function openModal(){
- document.getElementById("modal").style.display="flex";
+/* Theme Toggle */
+function toggleTheme(){
+ document.body.classList.toggle("dark");
 }
-window.onclick=e=>{
- if(e.target.classList.contains("modal")){
-  e.target.style.display="none";
- }
-};
-
-/* Chatbot */
-function toggleChat(){
- let chat=document.getElementById("chatbox");
- chat.style.display=chat.style.display==="block"?"none":"block";
-}
-document.getElementById("chatInput").addEventListener("keypress",function(e){
- if(e.key==="Enter"){
-  let q=this.value.toLowerCase();
-  let response="I specialize in ML and LLM systems.";
-  if(q.includes("project")) response="This portfolio features my Healthcare AI System.";
-  if(q.includes("skills")) response="Core skills: Python, ML, Deep Learning, FastAPI, GenAI.";
-  document.getElementById("chatlog").innerHTML+="<br><b>You:</b> "+this.value+"<br><b>AI:</b> "+response;
-  this.value="";
- }
-});
 </script>
 
 </body>
