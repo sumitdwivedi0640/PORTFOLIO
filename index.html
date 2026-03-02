@@ -5,273 +5,299 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sumit Dwivedi | AI Engineer</title>
 
+<!-- Fonts & Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 <style>
 :root {
-    --primary: #007BFF;
-    --bg-light: #f4f9ff;
-    --text-light: #0a1f44;
-    --bg-dark: #0f172a;
-    --text-dark: #e2e8f0;
+  --primary: #007BFF;
+  --dark: #0f172a;
+  --light: #f4f9ff;
 }
 
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(-45deg, #e0ecff, #f4f9ff, #dbeafe, #eef6ff);
-    background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
-    color: var(--text-light);
-    transition: 0.4s;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: white;
+  overflow-x: hidden;
+  cursor: none;
 }
 
-body.dark {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-    animation: none;
+/* Particles background */
+#particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-@keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+/* Custom Cursor */
+.cursor {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #007BFF;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transition: 0.1s;
+  z-index: 9999;
 }
 
 /* Navbar */
 nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 10%;
-    background: white;
-    position: fixed;
-    width: 100%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    z-index: 1000;
-}
-
-body.dark nav {
-    background: #1e293b;
-}
-
-nav h2 {
-    color: var(--primary);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10%;
+  position: fixed;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
 }
 
 .toggle {
-    cursor: pointer;
-    font-weight: bold;
+  cursor: pointer;
 }
 
 /* Hero */
 .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 10%;
-}
-
-.hero h1 {
-    font-size: 48px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10%;
 }
 
 .typing {
-    color: var(--primary);
-    border-right: 3px solid var(--primary);
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.btn {
-    margin-top: 20px;
-    padding: 12px 20px;
-    background: var(--primary);
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #0056b3;
+  color: var(--primary);
+  border-right: 3px solid var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* Sections */
 section {
-    padding: 80px 10%;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s ease;
+  padding: 80px 10%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s;
 }
 
 section.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-section h2 {
-    color: var(--primary);
-    margin-bottom: 30px;
+h2 {
+  color: var(--primary);
 }
 
 /* Skills */
-.skill {
-    margin-bottom: 20px;
-}
-
 .progress {
-    background: #e0ecff;
-    border-radius: 20px;
-    overflow: hidden;
+  background: #1e293b;
+  border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 .progress-bar {
-    height: 12px;
-    width: 0;
-    background: var(--primary);
-    transition: width 2s ease;
+  height: 12px;
+  width: 0;
+  background: var(--primary);
+  border-radius: 20px;
+  transition: width 2s;
 }
 
 /* Projects */
 .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 20px;
 }
 
 .card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-body.dark .card {
-    background: #1e293b;
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-8px);
+  transform: translateY(-8px);
 }
 
-.tags span {
-    background: #e0ecff;
-    color: var(--primary);
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin: 5px 5px 0 0;
-    display: inline-block;
+.badge {
+  display: inline-block;
+  background: var(--primary);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 700px;
+}
+
+.modal img {
+  width: 100%;
+  border-radius: 10px;
 }
 </style>
 </head>
 
 <body>
 
+<div id="particles"></div>
+<div class="cursor"></div>
+
 <nav>
-    <h2>Sumit Dwivedi</h2>
-    <div class="toggle" onclick="toggleMode()">🌙</div>
+  <h3>Sumit Dwivedi</h3>
+  <div class="toggle" onclick="toggleMode()">🌙</div>
 </nav>
 
 <div class="hero">
-    <h1>Hello, I'm Sumit Dwivedi</h1>
-    <h2 class="typing"></h2>
-    <a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">
-        View GitHub
-    </a>
+  <h1>Hello, I'm Sumit Dwivedi</h1>
+  <h2 class="typing"></h2>
 </div>
 
 <section>
-    <h2>Skills</h2>
-
-    <div class="skill">Python – 92%
-        <div class="progress"><div class="progress-bar" data-width="92%"></div></div>
-    </div>
-
-    <div class="skill">Machine Learning – 88%
-        <div class="progress"><div class="progress-bar" data-width="88%"></div></div>
-    </div>
-
-    <div class="skill">Deep Learning – 85%
-        <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-    </div>
-
-    <div class="skill">LLM / GenAI – 85%
-        <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-    </div>
-
-    <div class="skill">FastAPI – 82%
-        <div class="progress"><div class="progress-bar" data-width="82%"></div></div>
-    </div>
-
-    <div class="skill">AWS – 72%
-        <div class="progress"><div class="progress-bar" data-width="72%"></div></div>
-    </div>
+  <h2>Skills</h2>
+  Python
+  <div class="progress"><div class="progress-bar" data-width="92%"></div></div>
+  Machine Learning
+  <div class="progress"><div class="progress-bar" data-width="88%"></div></div>
+  Deep Learning
+  <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
+  LLM / GenAI
+  <div class="progress"><div class="progress-bar" data-width="85%"></div></div>
 </section>
 
 <section>
-    <h2>Projects</h2>
+  <h2>Projects</h2>
 
-    <div class="projects">
+  <div class="projects">
 
-        <div class="card">
-            <h3>Healthcare AI System</h3>
-            <p>Multi-stage AI pipeline with CNN models, Sepsis Prediction, FastAPI backend.</p>
-            <div class="tags">
-                <span>Python</span>
-                <span>FastAPI</span>
-                <span>TensorFlow</span>
-                <span>Scikit-learn</span>
-            </div>
-            <br>
-            <a href="https://github.com/sumitdwivedi0640/healthcare-ai-system" 
-               target="_blank" class="btn">
-               View Repository
-            </a>
-        </div>
-
-        <!-- Future Projects Ready -->
-        <!-- Just duplicate the card above and change content -->
-
+    <div class="card" onclick="openModal()">
+      <h3>Healthcare AI System</h3>
+      <div id="repo-data"></div>
+      <span class="badge">Deployed Ready</span>
+      <p><i class="fab fa-python"></i> Python 
+         <i class="fas fa-brain"></i> ML 
+         <i class="fas fa-server"></i> FastAPI</p>
     </div>
+
+  </div>
 </section>
 
+<!-- Modal -->
+<div class="modal" id="projectModal">
+  <div class="modal-content">
+    <h3>Healthcare AI System</h3>
+    <img src="https://raw.githubusercontent.com/sumitdwivedi0640/healthcare-ai-system/main/project-preview.png">
+    <br><br>
+    <a href="https://github.com/sumitdwivedi0640/healthcare-ai-system" target="_blank">
+      View Full Repository →
+    </a>
+  </div>
+</div>
+
 <script>
-/* Typing Animation */
+/* Typing */
 const text = "AI Engineer | ML | GenAI | LLM Systems";
-let i = 0;
-function typing() {
-    if (i < text.length) {
-        document.querySelector(".typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing, 80);
-    }
+let i=0;
+function typing(){
+  if(i<text.length){
+    document.querySelector(".typing").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(typing,70);
+  }
 }
 typing();
 
-/* Scroll Reveal */
-const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            sec.classList.add("show");
-        }
-    });
+/* Scroll reveal */
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll("section").forEach(sec=>{
+    if(sec.getBoundingClientRect().top < window.innerHeight-100){
+      sec.classList.add("show");
+    }
+  });
 });
 
-/* Skill Animation */
-window.onload = () => {
-    document.querySelectorAll('.progress-bar').forEach(bar => {
-        bar.style.width = bar.getAttribute('data-width');
-    });
+/* Skills animation */
+window.onload=()=>{
+  document.querySelectorAll(".progress-bar").forEach(bar=>{
+    bar.style.width=bar.getAttribute("data-width");
+  });
 };
 
-/* Dark Mode Toggle */
-function toggleMode() {
-    document.body.classList.toggle("dark");
+/* Dark mode */
+function toggleMode(){
+  document.body.classList.toggle("light");
 }
+
+/* Modal */
+function openModal(){
+  document.getElementById("projectModal").style.display="flex";
+}
+window.onclick=function(e){
+  if(e.target.classList.contains("modal")){
+    e.target.style.display="none";
+  }
+};
+
+/* GitHub Auto Fetch */
+fetch("https://api.github.com/repos/sumitdwivedi0640/healthcare-ai-system")
+.then(res=>res.json())
+.then(data=>{
+  document.getElementById("repo-data").innerHTML =
+    `⭐ ${data.stargazers_count} | 🍴 ${data.forks_count}<br>${data.description}`;
+});
+
+/* Custom Cursor */
+const cursor=document.querySelector(".cursor");
+document.addEventListener("mousemove",e=>{
+  cursor.style.left=e.clientX+"px";
+  cursor.style.top=e.clientY+"px";
+});
+
+/* Particles */
+const canvas=document.createElement("canvas");
+document.getElementById("particles").appendChild(canvas);
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+const ctx=canvas.getContext("2d");
+let particles=[];
+for(let i=0;i<80;i++){
+  particles.push({x:Math.random()*canvas.width,
+  y:Math.random()*canvas.height,
+  r:Math.random()*2});
+}
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#007BFF";
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
