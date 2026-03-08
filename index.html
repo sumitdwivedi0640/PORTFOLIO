@@ -7,49 +7,16 @@
 <title>Sumit Dwivedi | AI Engineer</title>
 
 <meta name="description" content="AI Engineer specializing in ML, GenAI and LLM systems.">
-<meta name="keywords" content="AI Engineer, Machine Learning, GenAI, LLM, FastAPI">
 
-  <style>
+<style>
 
-...your existing CSS...
+/* COLOR THEME */
 
-footer{
-  text-align:center;
-  padding:30px;
-  font-size:14px;
-}
-
-/* ADD CERTIFICATION CSS HERE */
-
-.cert-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
-}
-
-.cert-card{
-background:var(--card);
-padding:20px;
-border-radius:12px;
-text-align:center;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
-transition:0.3s;
-}
-
-.cert-card:hover{
-transform:translateY(-6px);
-}
-
-.cert-card img{
-width:100%;
-border-radius:8px;
-margin-bottom:15px;
-}
-
-body.dark{
---bg:#0f172a;
---text:#e2e8f0;
---card:#1e293b;
+:root{
+--primary:#2563eb;
+--bg:#ffffff;
+--text:#0a1f44;
+--card:#f4f8ff;
 }
 
 html{
@@ -58,10 +25,9 @@ scroll-behavior:smooth;
 
 body{
 margin:0;
-font-family:'Segoe UI', sans-serif;
+font-family:'Segoe UI',sans-serif;
 background:var(--bg);
 color:var(--text);
-transition:0.3s;
 }
 
 /* NAVBAR */
@@ -71,10 +37,12 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 10%;
-background:var(--bg);
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
-position:sticky;
-top:0;
+background:white;
+}
+
+.logo{
+height:80px;
 }
 
 .nav-links a{
@@ -82,19 +50,6 @@ margin-left:20px;
 text-decoration:none;
 color:var(--text);
 font-weight:500;
-}
-
-.logo{
-height:80px;
-}
-
-.toggle-btn{
-background:var(--primary);
-color:white;
-border:none;
-padding:8px 16px;
-border-radius:6px;
-cursor:pointer;
 }
 
 /* HERO */
@@ -137,12 +92,10 @@ text-decoration:none;
 display:inline-block;
 margin-top:15px;
 margin-right:10px;
-transition:0.3s;
 }
 
 .btn:hover{
 transform:translateY(-3px);
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
 /* SECTIONS */
@@ -164,36 +117,29 @@ padding:30px;
 border-radius:14px;
 margin-bottom:25px;
 box-shadow:0 6px 20px rgba(0,0,0,0.05);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-6px);
 }
 
 /* SKILLS */
 
-.skill-category{
-margin-bottom:40px;
+.skill{
+margin-bottom:20px;
+}
+
+.skill-title{
+display:flex;
+justify-content:space-between;
+margin-bottom:5px;
 }
 
 .progress{
 background:#e0ecff;
 border-radius:20px;
-margin-bottom:15px;
 overflow:hidden;
-}
-
-body.dark .progress{
-background:#334155;
 }
 
 .progress-bar{
 height:12px;
-width:0;
 background:var(--primary);
-border-radius:20px;
-transition:1.5s;
 }
 
 /* PROJECT GRID */
@@ -202,6 +148,28 @@ transition:1.5s;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:25px;
+}
+
+/* CERTIFICATIONS */
+
+.cert-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.cert-card{
+background:var(--card);
+padding:20px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
+}
+
+.cert-card img{
+width:100%;
+border-radius:8px;
+margin-bottom:15px;
 }
 
 /* GITHUB */
@@ -229,6 +197,8 @@ font-size:14px;
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
 
 <img src="logo.png" class="logo">
@@ -240,8 +210,6 @@ font-size:14px;
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </div>
-
-<button class="toggle-btn" onclick="toggleTheme()">Theme</button>
 
 </nav>
 
@@ -259,11 +227,10 @@ AI Engineer | Machine Learning | GenAI | LLM Systems
 
 <p>
 AI Engineer focused on building production-ready Machine Learning
-and LLM systems with scalable backend architectures using FastAPI.
+systems and scalable AI pipelines using FastAPI.
 </p>
 
 <a href="https://github.com/sumitdwivedi0640" target="_blank" class="btn">GitHub</a>
-
 <a href="https://www.linkedin.com/in/sumit-dwivedi21/" target="_blank" class="btn">LinkedIn</a>
 
 </div>
@@ -282,8 +249,9 @@ and LLM systems with scalable backend architectures using FastAPI.
 
 <p>
 AI Engineer experienced in Machine Learning, Deep Learning and GenAI systems.
-I build end-to-end AI pipelines using Python, FastAPI and modern ML frameworks.
-My focus is developing scalable AI solutions for real-world applications.
+Currently working as a <b>Machine Learning Intern at The SmartBridge</b> where I work
+on real-world ML pipelines including preprocessing, feature engineering,
+model training and evaluation.
 </p>
 
 </div>
@@ -291,7 +259,6 @@ My focus is developing scalable AI solutions for real-world applications.
 </section>
 
 <!-- EXPERIENCE -->
-
 
 <section id="experience">
 
@@ -307,8 +274,7 @@ My focus is developing scalable AI solutions for real-world applications.
 <li>Developing machine learning models for real-world datasets</li>
 <li>Building ML pipelines for prediction and automation</li>
 <li>Working with Python, Scikit-learn and TensorFlow</li>
-<li>Performing data preprocessing and feature engineering</li>
-<li>Collaborating with team members to build AI solutions for EdTech applications</li>
+<li>Feature engineering and model evaluation</li>
 </ul>
 
 </div>
@@ -321,41 +287,40 @@ My focus is developing scalable AI solutions for real-world applications.
 
 <h2>Skills</h2>
 
-<div class="skill-category">
-
-<h3>Core AI / ML</h3>
-
-Python<div class="progress"><div class="progress-bar" data-width="92%"></div></div>
-
-Machine Learning<div class="progress"><div class="progress-bar" data-width="88%"></div></div>
-
-Deep Learning<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-
-LLM / GenAI<div class="progress"><div class="progress-bar" data-width="85%"></div></div>
-
+<div class="skill">
+<div class="skill-title">Python <span>92%</span></div>
+<div class="progress"><div class="progress-bar" style="width:92%"></div></div>
 </div>
 
-<div class="skill-category">
-
-<h3>Backend</h3>
-
-FastAPI<div class="progress"><div class="progress-bar" data-width="82%"></div></div>
-
-SQLAlchemy<div class="progress"><div class="progress-bar" data-width="78%"></div></div>
-
+<div class="skill">
+<div class="skill-title">Machine Learning <span>88%</span></div>
+<div class="progress"><div class="progress-bar" style="width:88%"></div></div>
 </div>
 
-<div class="skill-category">
+<div class="skill">
+<div class="skill-title">Deep Learning <span>85%</span></div>
+<div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+</div>
 
-<h3>Cloud</h3>
+<div class="skill">
+<div class="skill-title">LLM / GenAI <span>85%</span></div>
+<div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+</div>
 
-AWS<div class="progress"><div class="progress-bar" data-width="72%"></div></div>
+<div class="skill">
+<div class="skill-title">FastAPI <span>82%</span></div>
+<div class="progress"><div class="progress-bar" style="width:82%"></div></div>
+</div>
 
+<div class="skill">
+<div class="skill-title">AWS <span>72%</span></div>
+<div class="progress"><div class="progress-bar" style="width:72%"></div></div>
 </div>
 
 </section>
 
-  <!-- CERTIFICATIONS -->
+<!-- CERTIFICATIONS -->
+
 <section id="certifications">
 
 <h2>Certifications</h2>
@@ -364,24 +329,23 @@ AWS<div class="progress"><div class="progress-bar" data-width="72%"></div></div>
 
 <div class="cert-card">
 
-<img src="aws-cloud-practitioner.png" alt="AWS Cloud Practitioner Essentials">
+<img src="aws-cloud-practitioner.png">
 
 <h3>AWS Cloud Practitioner Essentials</h3>
 
-<a href="blob:https://skillbuilder.aws/2a34d01c-f25d-4298-a3db-1993e57ba702" target="_blank" class="btn">
+<a href="https://drive.google.com/" target="_blank" class="btn">
 View Certificate
 </a>
 
 </div>
 
-
 <div class="cert-card">
 
-<img src="aws-technical-essentials.png" alt="AWS Technical Essentials">
+<img src="aws-technical-essentials.png">
 
 <h3>AWS Technical Essentials</h3>
 
-<a href="blob:https://skillbuilder.aws/a806e520-3a64-42a8-a736-2ed2bedf59b3" target="_blank" class="btn">
+<a href="https://drive.google.com/" target="_blank" class="btn">
 View Certificate
 </a>
 
@@ -390,7 +354,7 @@ View Certificate
 </div>
 
 </section>
- 
+
 <!-- PROJECTS -->
 
 <section id="projects">
@@ -405,21 +369,27 @@ View Certificate
 
 <p>
 Multi-stage AI pipeline for sepsis prediction and tumor detection using
-Machine Learning models and CNN networks.
+ML models and CNN networks.
 </p>
 
 <p>
-Tech Stack: Python, FastAPI, TensorFlow, Scikit-learn, SQLAlchemy, SQLite
+Tech Stack: Python, FastAPI, TensorFlow, Scikit-learn
 </p>
 
-<a href="https://github.com/sumitdwivedi0640/healthcare-ai-system"
-class="btn">View Repository</a>
+<a href="https://github.com/sumitdwivedi0640/healthcare-ai-system" class="btn">
+GitHub
+</a>
+
+<a href="https://drive.google.com/drive/folders/1Y9p7QwbzMOTtRNgSO29MiakagPi7V35y?usp=drive_link" class="btn">
+Project Docs
+</a>
 
 </div>
 
 </div>
 
 </section>
+
 <!-- GITHUB -->
 
 <section>
@@ -444,9 +414,7 @@ class="btn">View Repository</a>
 
 <div class="card">
 
-<p>
-Interested in AI Engineer opportunities or collaborations.
-</p>
+<p>Interested in AI Engineer opportunities or collaborations.</p>
 
 <a href="https://github.com/sumitdwivedi0640" class="btn">GitHub</a>
 
@@ -462,21 +430,5 @@ Interested in AI Engineer opportunities or collaborations.
 
 </footer>
 
-<script>
-
-document.querySelectorAll('.progress-bar').forEach(bar=>{
-bar.style.width=bar.getAttribute("data-width");
-});
-
-function toggleTheme(){
-document.body.classList.toggle("dark");
-}
-
-</script>
-
 </body>
 </html>
-
-
-
-
