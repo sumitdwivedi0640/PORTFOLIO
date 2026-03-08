@@ -9,13 +9,41 @@
 <meta name="description" content="AI Engineer specializing in ML, GenAI and LLM systems.">
 <meta name="keywords" content="AI Engineer, Machine Learning, GenAI, LLM, FastAPI">
 
-<style>
+  <style>
 
-:root{
---primary:#1e73ff;
---bg:#ffffff;
---text:#0a1f44;
---card:#f4f8ff;
+...your existing CSS...
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+}
+
+/* ADD CERTIFICATION CSS HERE */
+
+.cert-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.cert-card{
+background:var(--card);
+padding:20px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
+transition:0.3s;
+}
+
+.cert-card:hover{
+transform:translateY(-6px);
+}
+
+.cert-card img{
+width:100%;
+border-radius:8px;
+margin-bottom:15px;
 }
 
 body.dark{
@@ -448,6 +476,7 @@ document.body.classList.toggle("dark");
 
 </body>
 </html>
+
 
 
 
