@@ -151,25 +151,44 @@ gap:25px;
 }
 
 /* CERTIFICATIONS */
-
 .cert-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+margin-top:40px;
 }
 
 .cert-card{
 background:var(--card);
-padding:20px;
-border-radius:12px;
+padding:35px 25px;
+border-radius:16px;
 text-align:center;
-box-shadow:0 6px 20px rgba(0,0,0,0.05);
+box-shadow:0 8px 25px rgba(0,0,0,0.06);
+transition:all 0.3s ease;
+text-decoration:none;
+color:var(--text);
+display:block;
+}
+
+.cert-card:hover{
+transform:translateY(-10px);
+box-shadow:0 18px 40px rgba(0,0,0,0.12);
 }
 
 .cert-card img{
-width:100%;
-border-radius:8px;
-margin-bottom:15px;
+width:160px;
+height:auto;
+margin-bottom:18px;
+}
+
+.cert-card h3{
+font-size:18px;
+margin-bottom:6px;
+}
+
+.cert-card p{
+font-size:14px;
+color:#6b7280;
 }
 
 /* GITHUB */
@@ -441,6 +460,7 @@ Project Docs
 
 </body>
 </html>
+
 
 
 
